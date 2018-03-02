@@ -1,0 +1,24 @@
+{
+  "name": "brain_power_web_hook",
+  "version": "1.0.0",
+  "description": "Brainpower webhook for chatbot",
+  "main": "index.js",
+  "dependencies": {
+    "@google-cloud/language": "^1.1.0",
+    "express": "^4.16.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elor7824/Twitter_DialogFlow.git"
+  },
+  "author": "BrainPower Team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elor7824/Twitter_DialogFlow/issues"
+  },
+  "homepage": "https://github.com/elor7824/Twitter_DialogFlow#readme"
+}

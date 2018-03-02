@@ -5,7 +5,7 @@
 * @param {Object} res Cloud Function response context.
 */
 exports.MessengerBot = function MessengerBot (req, res) {
-    response = "This is a sample response from your webhook!" //Default response from the webhook to show it's working
+    response = "Hello world, How are you?"; //Default response from the webhook to show it's working
   
   
     res.setHeader('Content-Type', 'application/json'); //Requires application/json MIME type
