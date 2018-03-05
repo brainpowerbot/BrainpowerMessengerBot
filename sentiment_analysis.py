@@ -5,6 +5,10 @@ from google.cloud.language import enums
 from google.cloud.language import types
 
 def analyze(text):
+	"""
+	Function analyses a block of text for positive, negative, or neutral sentiment
+	text :: String of sentences. Separates by periods when performing analysis
+	"""
 	client = language.LanguageServiceClient()
 	document = types.Document(
 		content=text,
