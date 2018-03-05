@@ -13,23 +13,38 @@ var app = express();
 var FB = require('fb');
 
 exports.MessengerBot = function MessengerBot (req, res) {
-    var response;
-    FB.setAccessToken('EAACEP1ZBqcxgBABbFdldMmtZC0XDlz33mLr4pOYdhK4LZB6qwZAARZBa16ABo8fPZAwtsLfci5nKmQEO7PRMzbM9MtPG4VbdQfBlRrt1WXmM6QB9jXQbgZAjPRMZCAIoUGD9JoqQj7kHR7v6UscpMQlbh8UcovuAjOwD9O2JixVTOVOyKd3VHnThlUoGF1ufkYXvDBeh5SV0W3VR71Arl76bl0XPM8SSEw25w5wNmZCvSTgZDZD');
-  	FB.api(
-      '/127204964763192/friends',
+  var response;
+  var friends = [];
+  FB.setAccessToken('EAACEP1ZBqcxgBANqfwMUJcGrTrfiDA5GnBY3wFfWfZAaA8R6dH2rCwMNZBLZCxrZAVro3jl1ZBM1di2vyDzOYf4d9vp6HYFy37PF0ZB0UqcrHRU7I3ELne8PfUqmomoH9La4V0oHwCRhHEgKPmjg0GS8JvacLtzQLm6u1XeYSNJKgmKicJ8xzVH');
+  function apiFriends(userID){
+    FB.api(
+      '/' + userID + '/friends',
       'GET',
       {},
-      function(response1) {
-          console.log(response1);
-          response = response1.summary.total_count;
-          console.log(response);
-          console.log("OUTSIDE: ", response);
-          //var response = "This is a sample response from your webhook!"
-          res.setHeader('Content-Type', 'application/json'); //Requires application/json MIME type
-          console.log("hi SDF,.VKSJDHGLKSDFJHGLKJHLK");
-          res.send(JSON.stringify({ "speech": response, "displayText": response
-          //"speech" is the spoken version of the response, "displayText" is the visual version
-          }));
+      function(FB_Data) {
+        //response = FB_Data.summary.total_count;
+        var friends = [];
+        for(var i = 0; i < FB_Data.data.length; i++) {
+            friends.push(FB_Data.data[i].name);
+          console.log("1", friends);
+        }
+        return friends;
       }
     );
-  };
+  }
+  function mutualFriends(){
+    friends1 = apiFriends(127204964763192);
+    friends2 = apiFriends(112564949562944);
+    
+    //I dont code in JS, but this code is asynchronous and I cant run the code below until the code above finishes runnning. Not sure how to get asynchronous code to be syncronous in js
+    //something to do with callback function. Not sure how to make it work
+    
+    //friends1.filter(function(n) {return friends2.indexOf(n) !== -1;});
+  }
+  
+  mutualFriends();
+  
+  //console.log(mut);
+  res.setHeader('Content-Type', 'application/json'); //Requires application/json MIME type
+  res.send(JSON.stringify({ "speech": "1", "displayText": "1"})); //"speech" is the spoken version of the response, "displayText" is the visual version
+};
