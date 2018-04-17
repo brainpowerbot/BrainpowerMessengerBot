@@ -11,6 +11,7 @@
 var express = require('express');
 var app = express();
 var FB = require('fb');
+var sentiment = require('./sentiment')
 
 exports.MessengerBot = function MessengerBot (req, res) {
   var response;
@@ -56,4 +57,14 @@ exports.MessengerBot = function MessengerBot (req, res) {
   //console.log(mut);
   //res.setHeader('Content-Type', 'application/json'); //Requires application/json MIME type
   //res.send(JSON.stringify({ "speech": "1", "displayText": "1"})); //"speech" is the spoken version of the response, "displayText" is the visual version
+};
+
+exports.sentimentAnalysisBasic = function sentimentAnalysisBasic (req, res) {
+  /*req should have json objects content and type
+  IE content: text, type: 'PLAIN_TEXT'
+  */
+  console.log(req);
+  scores = sentiment.analyzeSentiment(req);
+  console.log(scores)
+  res.send("Like this?")
 };
