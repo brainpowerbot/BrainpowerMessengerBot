@@ -36,4 +36,4 @@ Step 2: The Dialogflow chat bot project name should show up in a drop-down menu 
 
 Step 3: Follow [this document](https://dialogflow.com/docs/getting-started/basic-fulfillment-conversation) on how to set up a webhook for your dialogflow bot
 
-Step 4: Read the [documents](https://cloud.google.com/functions/docs/) that explain how to use "cloud functions" and how to deploy the facebook api code so that dialogflow can use that data
+Step 4: Read the [documents](https://cloud.google.com/functions/docs/) that explain how to use "cloud functions" and how to deploy the facebook api code so that dialogflow can use data from Facebook
